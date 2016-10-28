@@ -1,14 +1,12 @@
 #! /usr/bin/env python3
 
-
-
 import random
 
 class Imagen:
     
     def __init__(self,tip="P2",nom="img1",des="imagen1",f1=200,c1=200):
         """
-        Objeto imagen
+        Objet imagen
         """
         self.tipo=tip
         self.nombre=nom
@@ -22,80 +20,80 @@ class Imagen:
 
     def getNombre(self):
         """
-        Devuelve el nombre
+        return name
         """
         return self.nombre
 
     def getTipo(self):
         """
-        Devuelve el tipo
+        return tipe
         """
         return self.tipo
 
     def getComentario(self):
         """
-        Devuelve el comentario
+        return comment
         """
         return self.comentario
 
     def getFilas(self):
         """
-        Devuelve el numero de filas
+        return number of files
         """
         return self.filas
 
     def getColumnas(self):
         """
-        Devuelve el numero de columnas
+        return number of columns
         """
         return self.columnas
 
     def setNombre(self,nom):
         """
-        Edita el nombre
+        set name
         """
         self.nombre=nom
 
     def setTipo(self,tip):
         """
-        Edita el tipo
+        set tipe
         """
         self.tipo=tip
 
     def setComentario(self,des):
         """
-        Edita el comentario
+        set comment
         """
         self.comentario=des
 
     def setPixel(self,fila,columna,valor):
         """
-        Edita un pixel
+        set pixel
         """
         self.vector1[(fila*self.columnas)+columna]=valor
 
     def setPixelPos(self,lugar,valor):
         """
-        Edita un pixel2
+        set pixel2
         """
         self.vector1[lugar]=valor
 
     def getPixel(self,fila,columna):
         """
-        Devuelve un pixel
+        return pixel
         """
         return self.vector1[(fila*self.columnas)+columna]
 
     def getPixelPos(self,lugar):
         """
-        Devuelve un pixel2
+        return pixel2
         """
         return self.vector1[lugar]
 
     @staticmethod
     def leerImagen(nom):
         """
-        Lee de fichero una imagen
+        Read image file
         """
         #f1=open(nom,'r')  
         f1=open(nom,'rb')  #Leer byte
@@ -126,7 +124,7 @@ class Imagen:
 
     def imprimirEnFichero(self,nombre):
         """
-        Imprime en fichero la imagen
+        Print image file
         """
         f1=open(nombre,'w')
         f1.write(self.getTipo()+'\n'+self.getComentario()+'\n'+str(self.getFilas())+' '+str(self.getColumnas())+"\n255\n")
@@ -136,7 +134,7 @@ class Imagen:
 
     def imprimir(self):
         """
-        Imprime la imagen
+        Print image file
         """
         print(self.getTipo()+'\n'+self.getComentario()+'\n'+str(self.getFilas())+' '+str(self.getColumnas())+"\n255\n")
         for f1 in range(0,self.filas):
@@ -149,7 +147,7 @@ class Imagen:
     @staticmethod
     def dameExtensionYNombre(nombre):
         """
-        Devuelve un vector con el nombre y la extension de la imagen
+        Return a image string vector (name, extension)
         """
         nom=str(nombre).split('.')
         nom2=""
@@ -166,7 +164,7 @@ class Imagen:
     @staticmethod
     def inversa(img1):
         """
-        Crea la imagen inversa
+        Create a inverse image
         """
         imagen=img1
         for ff in range(0,(imagen.filas*imagen.columnas)):
@@ -176,7 +174,7 @@ class Imagen:
     @staticmethod
     def transponer(img1):
         """
-        Crea la imagen transpuesta
+        Create a image transponse
         """
         imagen=img1
         numPixTotal=int((imagen.filas*imagen.columnas)/2)-1
@@ -189,9 +187,9 @@ class Imagen:
     
     def crearTodo(self):
         """
-        Crea todos los tipos de versiones de la imagen PGM
+        Create a image inserse, other transponse and last inerse and transponse
         """
-        self.setComentario("# Using Python3.3: Falcon90")
+        self.setComentario("# Using Python3.3: PGM-Python")
         nom=Imagen.dameExtensionYNombre(self.getNombre())[0]
         exte=Imagen.dameExtensionYNombre(self.getNombre())[1]
         Imagen.transponer(self).imprimirEnFichero(nom+'_transpuesta.'+exte)
