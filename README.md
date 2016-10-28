@@ -1,2 +1,2 @@
 # PGM-Python
-A ease pgm images editor.
+A easy pgm images editor (by terminal).
