@@ -1,7 +1,5 @@
 #! /usr/bin/env python3
 
-import random
-
 class Imagen:
     
     def __init__(self,tip="P2",nom="img1",des="imagen1",f1=200,c1=200):
@@ -16,7 +14,7 @@ class Imagen:
         self.vector1=list()
         for ff in range(0,self.filas):
             for cc in range(0,self.columnas):
-                self.vector1.append(0)#int(random.uniform(0,255)))
+                self.vector1.append(0)
 
     def getNombre(self):
         """
@@ -95,23 +93,21 @@ class Imagen:
         """
         Read image file
         """
-        #f1=open(nom,'r')  
-        f1=open(nom,'rb')  #Leer byte
-        #print(nom)
+        f1=open(nom,'rb')
         c1 = ''
-        tipo = str(f1.readline()).split('\'')[1].split('\\')[0]#Para leer el tipo de fichero
-        des=str(f1.readline()).split('\'')[1].split('\\')[0]#Para leer el comentario
+        # Para leer el tipo de fichero
+        tipo = str(f1.readline()).split('\'')[1].split('\\')[0]
+        # Para leer el comentario
+        des=str(f1.readline()).split('\'')[1].split('\\')[0]
         cad = str(f1.readline()).split('\'')[1].split('\\')[0]
         filas = int(cad.split(' ')[0])
         columnas = int(cad.split(' ')[1])
-        #print("Tipo: "+str(tipo)+" Filas:"+str(filas)+" Columnas: "+str(columnas))
         img1 = Imagen(tipo,nom,des,filas,columnas)
-        str(f1.readline()) #Para leer el tamano maximo
+        str(f1.readline()) # Para leer el tamano maximo
         num = 0
         lugar = 0
-        while (lugar != (filas * columnas)): #or lugar > (filas * columnas * 2)):
+        while (lugar != (filas * columnas)):
             cad = str(f1.read(1)).split('\'')[1].split('\\')[0]
-            #print(cad)
             if (cad != ''):
                 num = (num * 10) + int(cad)
             else:
@@ -141,8 +137,6 @@ class Imagen:
             for c1 in range(0,self.columnas):
                 print(str(self.getPixel(f1,c1)))
 
-    # OTRAS FUNCIONES IMPORTANTES
-
     # Extension de un fichero
     @staticmethod
     def dameExtensionYNombre(nombre):
@@ -160,7 +154,6 @@ class Imagen:
         list1.append(exte)
         return list1
 
-    # El inversa de una imagen
     @staticmethod
     def inversa(img1):
         """
