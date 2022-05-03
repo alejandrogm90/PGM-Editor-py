@@ -7,7 +7,15 @@ Have instaled python3.
 ### Example of use
 Launch its on your terminal:
 ```bash
-$ username@hostname: ./main.py -i lenna.pgm
+$ username@hostname: ./main.py -a lenna.pgm
+```
+Codificcate text:
+```bash
+$ username@hostname: ./main.py -e lenna.pgm myMessage.txt
+```
+Decodificcate text:
+```bash
+$ username@hostname: ./main.py -d lenna_codificated.pgm
 ```
 
 ## Bibliography

@@ -21,12 +21,15 @@ if __name__ == "__main__":
                 Imagen.transponer(img1).imprimirPgmEnFichero(
                     nom[0] + "_transposed." + nom[1]
                 )
-            elif (sys.argv[1] == "--codificar") or (sys.argv[1] == "-c"):
-                nom = Imagen.dameExtensionYNombre(img1.getNombre())
-                texto1 = str(open(sys.argv[3]).readlines())
-                Imagen.codificar(img1, texto1).imprimirPgmEnFichero(
-                    nom[0] + "_codificated." + nom[1]
-                )
+            elif (sys.argv[1] == "--encode") or (sys.argv[1] == "-e"):
+                if len(sys.argv) == 4:
+                    nom = Imagen.dameExtensionYNombre(img1.getNombre())
+                    texto1 = str(open(sys.argv[3]).readlines())
+                    Imagen.codificar(img1, texto1).imprimirPgmEnFichero(
+                        nom[0] + "_codificated." + nom[1]
+                    )
+                else:
+                    print("A text file to insert in PGM image is required.")
             elif (sys.argv[1] == "--decodificar") or (sys.argv[1] == "-d"):
                 nom = Imagen.dameExtensionYNombre(img1.getNombre())
                 Imagen.imprimirTextoEnFichero(
@@ -42,4 +45,6 @@ if __name__ == "__main__":
         print("ARGUMENTS: ")
         print(" --inverse, -i : Return the inverse of given file")
         print(" --transposed, -t : Return the transposed of given file")
-        print(" --all, -a : Return both options")
+        print(" --all, -a : Return both options (inverse and transposed) ")
+        print(" --encode, -e : Encode text inside a PGM file")
+        print(" --decode, -d : Return the text from a PGM file encoded")
