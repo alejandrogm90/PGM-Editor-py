@@ -87,3 +87,9 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+# vscode
+.vscode
+
+# Lenna examples
+lenna_*
