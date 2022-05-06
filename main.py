@@ -33,7 +33,7 @@ if __name__ == "__main__":
             elif (sys.argv[1] == "--decodificar") or (sys.argv[1] == "-d"):
                 nom = Imagen.dameExtensionYNombre(img1.getNombre())
                 Imagen.imprimirTextoEnFichero(
-                    nom[0] + "_decoded." + nom[1], 
+                    nom[0] + "_decoded.txt", 
                     Imagen.descodificar(img1)
                 )
             else:
